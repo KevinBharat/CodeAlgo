@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:intro/View/custom_widget/my_theme.dart';
+import 'package:intro/View/login/login_page.dart';
 import 'components/background.dart';
 import 'components/custom_button.dart';
 
@@ -37,7 +38,9 @@ class WelcomePage extends StatelessWidget {
                 buttoncolor: MyTheme.loginButtoncolor,
                 buttontext: "Login",
                 textColor: Theme.of(context).colorScheme.onPrimary,
-                handleButtonClick: lhandleButtonClick,
+                handleButtonClick: () {
+                  lhandleButtonClick(context);
+                },
               ),
               SizedBox(
                 height: 20,
@@ -55,6 +58,10 @@ class WelcomePage extends StatelessWidget {
     );
   }
 
-  lhandleButtonClick() {}
+  lhandleButtonClick(BuildContext context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => loginPage()));
+  }
+
   signUphandleButtonClick() {}
 }
